@@ -1,0 +1,11 @@
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\bin\Release\netcoreapp2.0\SweepFile.deps.json
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\bin\Release\netcoreapp2.0\SweepFile.runtimeconfig.json
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\bin\Release\netcoreapp2.0\SweepFile.runtimeconfig.dev.json
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\bin\Release\netcoreapp2.0\SweepFile.dll
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\bin\Release\netcoreapp2.0\SweepFile.pdb
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\obj\Release\netcoreapp2.0\SweepFile.csproj.CoreCompileInputs.cache
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\obj\Release\netcoreapp2.0\SweepFile.AssemblyInfoInputs.cache
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\obj\Release\netcoreapp2.0\SweepFile.AssemblyInfo.cs
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\obj\Release\netcoreapp2.0\SweepFile.dll
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\obj\Release\netcoreapp2.0\SweepFile.pdb
+D:\DEV\SweepFileDriveU\SweepFile\SweepFile\obj\Release\netcoreapp2.0\SweepFile.csprojAssemblyReference.cache

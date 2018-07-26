@@ -1,0 +1,117 @@
+﻿@model SweepFile.Models.FileDirModel;
+
+@{
+    ViewData["Title"] = "Datawarehouse (U:)";
+}
+
+<h3 id="title">@ViewBag.title</h3>
+<h3 id="title"> @ViewBag.listfile.Count</h3>
+<hr />
+<style>
+    .presentation {
+        border-right: 1px solid #7f7f7f73;
+        padding: 1px;
+    }
+
+    #title {
+        display: none;
+    }
+    #myalert {
+        display:none;
+    }
+</style>
+
+@if (ViewBag.file_name != null) { 
+<div class="alert alert-success" role="alert" id="myalert">
+    <b>Success: </b> บันทึกเรียบร้อยแล้ว... <u> <a href="//file://192.168.96.7/Datawarehouse/Report/@ViewBag.file_name" target="_blank">ไฟล์ Excel ส่งออกไปที่ U:\Report\@ViewBag.file_name</a></u>
+    <a href="//file://///192.168.96.7/Datawarehouse/Report"  target="_blank">Link</a>
+</div>
+}
+
+<ul class="nav nav-tabs">
+    @foreach (fundcode fc in ViewBag.fund)
+    {
+        <li><a data-toggle="tab" href="#@fc.fundecode" class="active">@fc.fundecode</a></li>
+    }
+
+</ul>
+
+
+<form method="post" action="/">
+    <div class="tab-content">
+
+        @foreach (fundcode fc in ViewBag.fund)
+        {
+            <div id="@fc.fundecode" class="tab-pane fade ">
+                <h3>@fc.fundecode</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <th>Path</th>
+                    <th>File Name</th>
+                    <th>Note</th>
+                    </thead>
+                    <tbody>
+
+                            @for (int i = 0;i< ViewBag.listfile.Count;i++) {
+
+
+                            @if (ViewBag.listfile[i].fundcode == fc.fundecode)
+                            {
+                                <tr>
+                                    <td style="width:20%">@ViewBag.listfile[i].path</td>
+                                    <td>@ViewBag.listfile[i].fileName</td>
+                                    <td style="width:30%">
+                                        <textarea name="note[@i]" cols="50" rows="0" class="form-control"></textarea>
+                                        <input type="hidden" name="path[@i]" value="@ViewBag.listfile[i].path" />
+                                        <input type="hidden" name="fileName[@i]" value="@ViewBag.listfile[i].fileName" />
+                                        <input type="hidden" name="fundcode[@i]" value="@ViewBag.listfile[i].fundcode" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        <hr />
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="col-lg-8 col-sm-8 col-xs-8"></div>
+                <div class="col-lg-4 col-sm-4 col-xs-4  text-right" style="padding:10px">
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">กรุณากรอกชื่อ : </label>
+                        <div class="col-sm-8">
+                            <input type="text" name="usersub" class="form-control" id="inputEmail3" placeholder="กรุณากรอกชื่อ" required>
+                            <button type="submit" class="btn btn-success btn-lg" style="margin-top:20px"><i class="glyphicon glyphicon-log-out"></i> Export</button>
+                        </div>
+                    </div>                  
+
+                   
+                </div>
+            </div>
+       
+           
+
+    </div>
+</form>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("ul>li:first-child").addClass("active");
+            $(".tab-content>div:nth-child(1)").addClass("active in");
+            $("#title").fadeIn(2500);
+
+            $("#myalert").fadeIn(1000);
+
+            setInterval(function () {
+               // $("#myalert").slideUp(1000);
+            },5000);
+        });
+
+
+        function openFolder() { 
+    
+            window.open("//file://192.168.96.7/Datawarehouse/Report/","_blank");
+
+        }
+    </script>
